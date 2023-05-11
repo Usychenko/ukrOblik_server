@@ -1,11 +1,11 @@
 from mongo import get_database
 import csv
 import json
-
+import values as va
 
 def update_engelman_parser(csvFilePath):
     meters_db = get_database()
-    coll = meters_db['house']
+    coll = meters_db[va.coll_name]
     f = open(csvFilePath,'r')
     arr_meter = csv.reader(f, delimiter = ';')
     for number in arr_meter:

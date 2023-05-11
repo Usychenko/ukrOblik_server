@@ -16,7 +16,7 @@ def insert_from_file(path_to_jfile):
     for one_meter in full_dict:
         arr_dict[count] = one_meter
         count = count + 1
-    meters_coll = meters_base['house']
+    meters_coll = meters_base[va.coll_name]
     for meter in arr_dict:
         if meters_coll.find_one({'_id': meter['Meter number']}):
             meters_coll.update_one({'_id': meter['Meter number']},{'$set':{

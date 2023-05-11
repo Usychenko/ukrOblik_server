@@ -32,7 +32,7 @@ def all_csv_to_json(dir_for_save, arr_of_file):
         #json_name('../some_json/' + )
         if csv_file != '.' and csv_file != '..':
             json_name = csv_file.replace('.csv', '.json')
-            json_name = json_name.replace('/some_file/', '/some_json/')
+            json_name = json_name.replace(csv_dir, json_dir)
 #            print(json_name)
             csv_to_json(csv_file, json_name)
     return arr_of_file
