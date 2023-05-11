@@ -1,0 +1,3 @@
+Frame Type;Manufacturer;ID;Version;Device Type;TPL-Config;Meter ID;Meter Manufacturer;Meter Version;Meter Device Type;Access Number;Status;Encryption;IV,0,0,0,,Date/Time;IV,0,0,0,m^3,Vol;IV,0,0,0,,ErrorFlags(binary)(deviceType specific);IV,0,0,0,,Model/Version;IV,0,0,0,,Parameter set ident;
+SND_NR;EFE;02701123;03h;ColdWater;Response,Uplink,TPL=L,M-Bus;33333333;EFE;00h;ColdWater;45;2Bh;0;21.01.2022 15:13 invalid 0 summer time 0;0,033;10000b;2163458;4368;
+«File completely written»
