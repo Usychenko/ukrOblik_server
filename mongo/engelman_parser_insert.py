@@ -8,8 +8,6 @@ def update_engelman_parser(csvFilePath):
     coll = meters_db['house']
     f = open(csvFilePath,'r')
     arr_meter = csv.reader(f, delimiter = ';')
-    #for i in arr_meter:
-     #   print(i[2])
     for number in arr_meter:
         if number[0] != '«File completely written»':
          if number[2] == 'ID':

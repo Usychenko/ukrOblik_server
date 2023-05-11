@@ -12,12 +12,14 @@ def ftp_download(path_for_save, path_to_dir, url, user, pwd):
     for file_name in arr_of_file:
         #print(file_name)
         path_to_file = path_for_save + file_name
-        if file_name != '.' and file_name != '..' and ('.log' not in file_name):
-            f = open(path_to_file, 'wb')
-            ftp.retrbinary("RETR " + file_name, f.write)
-            f.close()
-            arr_of_file[count] = path_to_file
-         #   print(path_to_file)
+        if file_name != '.' and file_name != '..':
+            if('.log' not in file_name):
+                f = open(path_to_file, 'wb')
+                ftp.retrbinary("RETR " + file_name, f.write)
+                f.close()
+                arr_of_file[count] = path_to_file
+            ftp.delete(file_name)
+                     #   print(path_to_file)
         count += 1
     ftp.quit()
     print ('############')

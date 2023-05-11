@@ -4,6 +4,7 @@ import engelman_parser_insert as engel
 import json
 import csv
 import ftp_download as f_down
+import values as va
 
 def insert_from_file(path_to_jfile):
     meters_base = get_database()
@@ -52,24 +53,24 @@ def add_from_file(path_to_file):
 #ftp_dict = json.load(f)
 #f.close()
 
-arr_json = f_down.all_csv_to_json('/home/usychenko/mq-test/some_json/valsena/',
-                                  f_down.ftp_download('/home/usychenko/mq-test/some_file/valsena/',
-                                                       '/test2_Valsena/',
-                                                       'ftp.itp34.com.ua',
-                                                       'mbus@busov.itp34.com.ua',
-                                                       '621QWas@'))
+arr_json = f_down.all_csv_to_json(va.valsena_save_json,
+                                  f_down.ftp_download(va.valsena_save_csv,
+                                                       va.ftp_valsena,
+                                                       va.ftp_url,
+                                                       va.ftp_user,
+                                                       va.ftp_pwd))
 
 
 
 for jfile in arr_json:
     if jfile != '.' and jfile != '..':
-        insert_from_file((jfile.replace('.csv','.json')).replace('some_file','some_json'))
+        insert_from_file((jfile.replace('.csv','.json')).replace(va.csv_dir, va.json_dir))
 
-arr_csv = f_down.ftp_download('/home/usychenko/mq-test/some_json/engel/',
-                              '/test2_Engel/',
-                              'ftp.itp34.com.ua',
-                              'mbus@busov.itp34.com.ua',
-                              '621QWas@')
+arr_csv = f_down.ftp_download(va.engelman_save_csv,
+                              va.ftp_engelman,
+                              va.ftp_url,
+                              va.ftp_user,
+                              va.ftp_pwd)
 
 for c_file in arr_csv:
    if c_file !='.' and c_file != '..' and ('.log' not in c_file):
